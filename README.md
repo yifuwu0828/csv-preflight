@@ -4,13 +4,17 @@ Local catalogue checks with human-reviewed semantic column mapping.
 
 The browser runs the open Xenova/all-MiniLM-L6-v2 embedding model to suggest SKU, title, price and currency columns. A person reviews those choices before a deterministic CSV audit checks missing or duplicate SKUs, empty titles, invalid or negative prices, unsupported currencies and inconsistent row widths. The audit keeps source starting lines; it does not rewrite product records.
 
+## Try the demo
+
+[Open CSV Preflight](https://yifuwu0828.github.io/csv-preflight/). The free GitHub Pages deployment serves the model and runtime from this same project path; CSV records are processed in your browser.
+
 ## Try locally
 
 With an existing Node installation, run `node server.mjs`, then open http://127.0.0.1:8766/. No npm install or hosted API is needed. Run `node tests.mjs` for the core test suite.
 
 Choose **Load synthetic sample**, **Suggest column mapping**, review the four selections and check the confirmation box, then **Check catalogue**. **Download audit JSON** exports findings and mapping/model evidence. The sample contains five records and six findings affecting three records.
 
-The app can also be served as static files over HTTPS; relative paths support a project subdirectory. That path layout was tested on a local nested URL. No public deployment has been made yet.
+The app can also be served as static files over HTTPS; relative paths support a project subdirectory. That path layout was tested on a local nested URL. The public GitHub Pages deployment completed successfully on 2026-10-13.
 
 ## Measured prototype results
 
