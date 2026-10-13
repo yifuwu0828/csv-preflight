@@ -1,0 +1,655 @@
+{
+  "model": "Xenova/all-MiniLM-L6-v2",
+  "revision": "751bff37182d3f1213fa05d7196b954e230abad9",
+  "frozenFixtures": 10,
+  "fieldDecisions": 40,
+  "exactAliasCorrect": 24,
+  "modelMappingCorrect": 37,
+  "suiteScores": {
+    "development": {
+      "fixtures": 6,
+      "decisions": 24,
+      "exactAliasCorrect": 16,
+      "modelMappingCorrect": 23
+    },
+    "holdout": {
+      "fixtures": 4,
+      "decisions": 16,
+      "exactAliasCorrect": 8,
+      "modelMappingCorrect": 14
+    }
+  },
+  "elapsedMs": 90,
+  "results": [
+    {
+      "name": "canonical",
+      "headers": [
+        "sku",
+        "title",
+        "price",
+        "currency"
+      ],
+      "expected": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "suite": "development",
+      "baseline": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "actual": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "details": [
+        {
+          "field": "sku",
+          "index": 0,
+          "ambiguous": false,
+          "method": "exact alias",
+          "score": null,
+          "gap": null
+        },
+        {
+          "field": "title",
+          "index": 1,
+          "ambiguous": false,
+          "method": "exact alias",
+          "score": null,
+          "gap": null
+        },
+        {
+          "field": "price",
+          "index": 2,
+          "ambiguous": false,
+          "method": "exact alias",
+          "score": null,
+          "gap": null
+        },
+        {
+          "field": "currency",
+          "index": 3,
+          "ambiguous": false,
+          "method": "exact alias",
+          "score": null,
+          "gap": null
+        }
+      ],
+      "inferenceMs": 9
+    },
+    {
+      "name": "semantic A",
+      "headers": [
+        "stock reference",
+        "merchandise name",
+        "selling price",
+        "money denomination"
+      ],
+      "expected": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "suite": "development",
+      "baseline": [
+        null,
+        null,
+        null,
+        null
+      ],
+      "actual": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "details": [
+        {
+          "field": "sku",
+          "index": 0,
+          "suggestedIndex": 0,
+          "score": 0.7104239587238407,
+          "gap": 0.3748393083501903,
+          "method": "local model suggestion"
+        },
+        {
+          "field": "title",
+          "index": 1,
+          "suggestedIndex": 1,
+          "score": 0.834741976545946,
+          "gap": 0.504993667585824,
+          "method": "local model suggestion"
+        },
+        {
+          "field": "price",
+          "index": 2,
+          "suggestedIndex": 2,
+          "score": 0.7719800837477164,
+          "gap": 0.3454370355226857,
+          "method": "local model suggestion"
+        },
+        {
+          "field": "currency",
+          "index": 3,
+          "suggestedIndex": 3,
+          "score": 0.8385760881686251,
+          "gap": 0.5680073549134486,
+          "method": "local model suggestion"
+        }
+      ],
+      "inferenceMs": 8
+    },
+    {
+      "name": "semantic B shuffled",
+      "headers": [
+        "monetary unit",
+        "retail selling amount",
+        "catalogue item name",
+        "inventory identifier"
+      ],
+      "expected": [
+        3,
+        2,
+        1,
+        0
+      ],
+      "suite": "development",
+      "baseline": [
+        null,
+        null,
+        null,
+        null
+      ],
+      "actual": [
+        3,
+        2,
+        null,
+        0
+      ],
+      "details": [
+        {
+          "field": "sku",
+          "index": 3,
+          "suggestedIndex": 3,
+          "score": 0.7302271597702973,
+          "gap": 0.2671203851286086,
+          "method": "local model suggestion"
+        },
+        {
+          "field": "title",
+          "index": 2,
+          "suggestedIndex": 2,
+          "score": 0.7015220998733616,
+          "gap": 0.2502425964337925,
+          "method": "local model suggestion"
+        },
+        {
+          "field": "price",
+          "index": null,
+          "suggestedIndex": 1,
+          "score": 0.6831815053909039,
+          "gap": 0.02050691067121624,
+          "method": "weak or ambiguous — review required"
+        },
+        {
+          "field": "currency",
+          "index": 0,
+          "suggestedIndex": 0,
+          "score": 0.7134530009827923,
+          "gap": 0.36514587500111295,
+          "method": "local model suggestion"
+        }
+      ],
+      "inferenceMs": 12
+    },
+    {
+      "name": "irrelevant columns",
+      "headers": [
+        "warehouse location",
+        "supplier email",
+        "photo link",
+        "shipping weight"
+      ],
+      "expected": [
+        null,
+        null,
+        null,
+        null
+      ],
+      "suite": "development",
+      "baseline": [
+        null,
+        null,
+        null,
+        null
+      ],
+      "actual": [
+        null,
+        null,
+        null,
+        null
+      ],
+      "details": [
+        {
+          "field": "sku",
+          "index": null,
+          "suggestedIndex": 0,
+          "score": 0.30914952496347176,
+          "gap": 0.08824391221854241,
+          "method": "weak or ambiguous — review required"
+        },
+        {
+          "field": "title",
+          "index": null,
+          "suggestedIndex": 0,
+          "score": 0.35562635291938316,
+          "gap": 0.07023627904077456,
+          "method": "weak or ambiguous — review required"
+        },
+        {
+          "field": "price",
+          "index": null,
+          "suggestedIndex": 3,
+          "score": 0.29918403755198764,
+          "gap": 0.08850281126346815,
+          "method": "weak or ambiguous — review required"
+        },
+        {
+          "field": "currency",
+          "index": null,
+          "suggestedIndex": 3,
+          "score": 0.23405895526396686,
+          "gap": 0.07600703676792112,
+          "method": "weak or ambiguous — review required"
+        }
+      ],
+      "inferenceMs": 9
+    },
+    {
+      "name": "ambiguous price",
+      "headers": [
+        "sku",
+        "title",
+        "retail price",
+        "sale price",
+        "currency"
+      ],
+      "expected": [
+        0,
+        1,
+        null,
+        4
+      ],
+      "suite": "development",
+      "baseline": [
+        0,
+        1,
+        null,
+        4
+      ],
+      "actual": [
+        0,
+        1,
+        null,
+        4
+      ],
+      "details": [
+        {
+          "field": "sku",
+          "index": 0,
+          "ambiguous": false,
+          "method": "exact alias",
+          "score": null,
+          "gap": null
+        },
+        {
+          "field": "title",
+          "index": 1,
+          "ambiguous": false,
+          "method": "exact alias",
+          "score": null,
+          "gap": null
+        },
+        {
+          "field": "price",
+          "index": null,
+          "score": null,
+          "gap": null,
+          "method": "multiple explicit candidates — review required"
+        },
+        {
+          "field": "currency",
+          "index": 4,
+          "ambiguous": false,
+          "method": "exact alias",
+          "score": null,
+          "gap": null
+        }
+      ],
+      "inferenceMs": 10
+    },
+    {
+      "name": "one column collision",
+      "headers": [
+        "value"
+      ],
+      "expected": [
+        null,
+        null,
+        null,
+        null
+      ],
+      "suite": "development",
+      "baseline": [
+        null,
+        null,
+        null,
+        null
+      ],
+      "actual": [
+        null,
+        null,
+        null,
+        null
+      ],
+      "details": [
+        {
+          "field": "sku",
+          "index": null,
+          "suggestedIndex": 0,
+          "score": 0.1992955026918643,
+          "gap": 0.1992955026918643,
+          "method": "weak or ambiguous — review required"
+        },
+        {
+          "field": "title",
+          "index": null,
+          "suggestedIndex": 0,
+          "score": 0.22016919293359188,
+          "gap": 0.22016919293359188,
+          "method": "weak or ambiguous — review required"
+        },
+        {
+          "field": "price",
+          "index": null,
+          "suggestedIndex": 0,
+          "score": 0.3634766500097749,
+          "gap": 0.3634766500097749,
+          "method": "column collision — review required",
+          "conflict": true
+        },
+        {
+          "field": "currency",
+          "index": null,
+          "suggestedIndex": 0,
+          "score": 0.3761110066680197,
+          "gap": 0.3761110066680197,
+          "method": "column collision — review required",
+          "conflict": true
+        }
+      ],
+      "inferenceMs": 2
+    },
+    {
+      "name": "new catalogue terminology",
+      "headers": [
+        "catalog reference",
+        "display name",
+        "unit sale price",
+        "ISO currency code"
+      ],
+      "expected": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "suite": "holdout",
+      "baseline": [
+        null,
+        null,
+        null,
+        null
+      ],
+      "actual": [
+        0,
+        null,
+        2,
+        3
+      ],
+      "details": [
+        {
+          "field": "sku",
+          "index": 0,
+          "suggestedIndex": 0,
+          "score": 0.5031269281940911,
+          "gap": 0.0884845879657648,
+          "method": "local model suggestion"
+        },
+        {
+          "field": "title",
+          "index": null,
+          "suggestedIndex": 0,
+          "score": 0.5345514255743372,
+          "gap": 0.043196937037543626,
+          "method": "weak or ambiguous — review required"
+        },
+        {
+          "field": "price",
+          "index": 2,
+          "suggestedIndex": 2,
+          "score": 0.6935558695417887,
+          "gap": 0.32646873934953025,
+          "method": "local model suggestion"
+        },
+        {
+          "field": "currency",
+          "index": 3,
+          "suggestedIndex": 3,
+          "score": 0.6335058572921122,
+          "gap": 0.387736111157576,
+          "method": "local model suggestion"
+        }
+      ],
+      "inferenceMs": 9
+    },
+    {
+      "name": "new shuffled terminology",
+      "headers": [
+        "payment currency",
+        "asking price",
+        "listing title",
+        "item reference"
+      ],
+      "expected": [
+        3,
+        2,
+        1,
+        0
+      ],
+      "suite": "holdout",
+      "baseline": [
+        null,
+        null,
+        null,
+        null
+      ],
+      "actual": [
+        3,
+        2,
+        null,
+        0
+      ],
+      "details": [
+        {
+          "field": "sku",
+          "index": 3,
+          "suggestedIndex": 3,
+          "score": 0.5602354927071972,
+          "gap": 0.25198559097138795,
+          "method": "local model suggestion"
+        },
+        {
+          "field": "title",
+          "index": 2,
+          "suggestedIndex": 2,
+          "score": 0.5980545595083411,
+          "gap": 0.1253109977261826,
+          "method": "local model suggestion"
+        },
+        {
+          "field": "price",
+          "index": null,
+          "suggestedIndex": 1,
+          "score": 0.47069747480568064,
+          "gap": 0.01161660756071975,
+          "method": "weak or ambiguous — review required"
+        },
+        {
+          "field": "currency",
+          "index": 0,
+          "suggestedIndex": 0,
+          "score": 0.7249177965188641,
+          "gap": 0.4914317251618925,
+          "method": "local model suggestion"
+        }
+      ],
+      "inferenceMs": 8
+    },
+    {
+      "name": "cost versus sale",
+      "headers": [
+        "item id",
+        "name",
+        "wholesale cost",
+        "retail price",
+        "currency code"
+      ],
+      "expected": [
+        0,
+        1,
+        null,
+        4
+      ],
+      "suite": "holdout",
+      "baseline": [
+        0,
+        1,
+        null,
+        4
+      ],
+      "actual": [
+        0,
+        1,
+        null,
+        4
+      ],
+      "details": [
+        {
+          "field": "sku",
+          "index": 0,
+          "ambiguous": false,
+          "method": "exact alias",
+          "score": null,
+          "gap": null
+        },
+        {
+          "field": "title",
+          "index": 1,
+          "ambiguous": false,
+          "method": "exact alias",
+          "score": null,
+          "gap": null
+        },
+        {
+          "field": "price",
+          "index": null,
+          "score": null,
+          "gap": null,
+          "method": "multiple explicit candidates — review required"
+        },
+        {
+          "field": "currency",
+          "index": 4,
+          "ambiguous": false,
+          "method": "exact alias",
+          "score": null,
+          "gap": null
+        }
+      ],
+      "inferenceMs": 15
+    },
+    {
+      "name": "unrelated fulfilment sheet",
+      "headers": [
+        "dispatch date",
+        "delivery city",
+        "customer phone",
+        "parcel dimensions"
+      ],
+      "expected": [
+        null,
+        null,
+        null,
+        null
+      ],
+      "suite": "holdout",
+      "baseline": [
+        null,
+        null,
+        null,
+        null
+      ],
+      "actual": [
+        null,
+        null,
+        null,
+        null
+      ],
+      "details": [
+        {
+          "field": "sku",
+          "index": null,
+          "suggestedIndex": 3,
+          "score": 0.172888208783507,
+          "gap": 0.00984782087008304,
+          "method": "weak or ambiguous — review required"
+        },
+        {
+          "field": "title",
+          "index": null,
+          "suggestedIndex": 2,
+          "score": 0.26750682306827367,
+          "gap": 0.01096067733384315,
+          "method": "weak or ambiguous — review required"
+        },
+        {
+          "field": "price",
+          "index": null,
+          "suggestedIndex": 2,
+          "score": 0.20751266765011195,
+          "gap": 0.06675853093463044,
+          "method": "weak or ambiguous — review required"
+        },
+        {
+          "field": "currency",
+          "index": null,
+          "suggestedIndex": 2,
+          "score": 0.20922506237669808,
+          "gap": 0.097443052958581,
+          "method": "weak or ambiguous — review required"
+        }
+      ],
+      "inferenceMs": 8
+    }
+  ],
+  "limitations": "Small synthetic test; not general accuracy or customer evidence. Development tests informed an explicit ambiguity guard; holdout fixtures were frozen after that change and were not used to tune it. Abstentions count as correct only where expected."
+}

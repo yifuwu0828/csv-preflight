@@ -1,0 +1,149 @@
+{
+  "schemaVersion": "csv-preflight.audit.v1",
+  "recordCount": 5,
+  "issueCount": 6,
+  "affectedRecords": 3,
+  "headers": [
+    "stock reference",
+    "merchandise name",
+    "selling price",
+    "money denomination"
+  ],
+  "mapping": {
+    "sku": 0,
+    "title": 1,
+    "price": 2,
+    "currency": 3
+  },
+  "issues": [
+    {
+      "record": 2,
+      "sourceLine": 3,
+      "field": "sku",
+      "code": "duplicate_sku",
+      "message": "SKU also occurs on source line 2."
+    },
+    {
+      "record": 2,
+      "sourceLine": 3,
+      "field": "price",
+      "code": "negative_price",
+      "message": "Price must not be negative."
+    },
+    {
+      "record": 3,
+      "sourceLine": 4,
+      "field": "sku",
+      "code": "missing_sku",
+      "message": "SKU is empty."
+    },
+    {
+      "record": 3,
+      "sourceLine": 4,
+      "field": "price",
+      "code": "invalid_price",
+      "message": "Price must be a finite decimal number, without symbols or separators."
+    },
+    {
+      "record": 4,
+      "sourceLine": 5,
+      "field": "title",
+      "code": "empty_title",
+      "message": "Product title is empty."
+    },
+    {
+      "record": 4,
+      "sourceLine": 5,
+      "field": "currency",
+      "code": "unsupported_currency",
+      "message": "Use an uppercase supported currency code; see the supported list."
+    }
+  ],
+  "sourceLineMeaning": "Physical starting line of the CSV record, including the header line.",
+  "pricesModified": false,
+  "generatedAt": "2026-10-13T16:03:01.694Z",
+  "inputTextSha256": "f6fd5122fb389e5c9ce43449ed203cc2ac2964834efef527b0ac84fe84f82126",
+  "hashBasis": "UTF-8 text as parsed in the browser; not a claim about original file encoding.",
+  "mappingReviewConfirmed": true,
+  "mappingProposals": [
+    {
+      "field": "sku",
+      "index": 0,
+      "suggestedIndex": 0,
+      "score": 0.7104239587238407,
+      "gap": 0.3748393083501903,
+      "method": "local model suggestion"
+    },
+    {
+      "field": "title",
+      "index": 1,
+      "suggestedIndex": 1,
+      "score": 0.834741976545946,
+      "gap": 0.504993667585824,
+      "method": "local model suggestion"
+    },
+    {
+      "field": "price",
+      "index": 2,
+      "suggestedIndex": 2,
+      "score": 0.7719800837477164,
+      "gap": 0.3454370355226857,
+      "method": "local model suggestion"
+    },
+    {
+      "field": "currency",
+      "index": 3,
+      "suggestedIndex": 3,
+      "score": 0.8385760881686251,
+      "gap": 0.5680073549134486,
+      "method": "local model suggestion"
+    }
+  ],
+  "model": {
+    "id": "Xenova/all-MiniLM-L6-v2",
+    "revision": "751bff37182d3f1213fa05d7196b954e230abad9",
+    "runtime": "Transformers.js 3.8.1",
+    "threshold": 0.35,
+    "margin": 0.08
+  },
+  "supportedCurrencies": [
+    "USD",
+    "EUR",
+    "GBP",
+    "SAR",
+    "CNY",
+    "AED",
+    "JPY",
+    "CAD",
+    "AUD",
+    "CHF",
+    "INR",
+    "HKD",
+    "NZD",
+    "SGD",
+    "BRL",
+    "MXN",
+    "ZAR",
+    "KRW",
+    "SEK",
+    "NOK",
+    "DKK",
+    "PLN",
+    "TRY",
+    "THB",
+    "IDR",
+    "MYR",
+    "PHP",
+    "VND",
+    "TWD",
+    "BHD",
+    "KWD",
+    "QAR",
+    "OMR",
+    "EGP",
+    "CLP",
+    "COP",
+    "ARS",
+    "PKR"
+  ]
+}

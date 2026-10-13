@@ -1,0 +1,20 @@
+{
+  "passed": 15,
+  "tests": [
+    "quoted comma, doubled quote and multiline start lines",
+    "BOM and no final newline",
+    "missing, duplicated, negative, nonfinite and unknown currency findings",
+    "reject malformed quote structures",
+    "header duplicates after normalization",
+    "empty header rejected",
+    "row width retained as finding",
+    "short record reports missing currency rather than crashing",
+    "number boundaries and no automatic currency normalization",
+    "mapping must be complete and unique",
+    "exact alias ambiguity abstains",
+    "semantic scoring cannot override multiple explicit price candidates",
+    "duplicate exact aliases remain unselected even with unequal semantic scores",
+    "model column collisions abstain",
+    "CSV cell HTML remains literal data"
+  ]
+}
